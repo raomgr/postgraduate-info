@@ -1,9 +1,12 @@
 <template>
   <el-container>
+    <el-aside style="background: #ffffff;width: 230px;padding: 20px 0;border-right: 1px solid #ececec">
+      <side-bar class="sidebar-container" />
+    </el-aside>
     <el-container>
-      <el-aside style="background: #ffffff;height: 100vh;width: 230px;padding: 20px 0;border-right: 1px solid #ececec">
-        <side-bar class="sidebar-container" />
-      </el-aside>
+      <el-header style="text-align: right; font-size: 12px">
+        <span>王小虎</span>
+      </el-header>
       <el-main>
         <section class="main-con">
           <app-main />

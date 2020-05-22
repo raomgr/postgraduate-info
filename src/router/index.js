@@ -5,31 +5,44 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '',
+    path: '/school',
     component: Layout,
-    redirect: 'home',
     children: [
       {
-        path: 'home',
-        name: 'home',
-        component: () => import('../views/Home.vue'),
+        path: 'schoolInfo',
+        name: 'school',
+        component: () => import('../views/School.vue'),
         meta: {
-          title: 'userCenter'
+          title: '学校信息'
         }
       }
     ]
   },
   {
-    path: '/school',
+    path: '/',
     component: Layout,
-    redirect: 'schoolInfo',
+    redirect: 'examInfo',
     children: [
       {
-        path: '/schoolInfo',
+        path: 'examInfo',
         name: 'school',
-        component: () => import('../views/School.vue'),
+        component: () => import('../views/Exam.vue'),
         meta: {
-          title: 'school'
+          title: '报考信息'
+        }
+      }
+    ]
+  },
+  {
+    path: '/major',
+    component: Layout,
+    children: [
+      {
+        path: 'majorInfo',
+        name: 'school',
+        component: () => import('../views/Major.vue'),
+        meta: {
+          title: '专业信息'
         }
       }
     ]

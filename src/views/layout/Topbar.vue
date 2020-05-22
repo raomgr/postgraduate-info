@@ -26,20 +26,20 @@
 
 <script>
 import breadcrumb from '@/components/breadcrumb'
-import {removeToken} from '@/utils/auth'
-import {mapState} from 'vuex'
+import { removeToken } from '@/utils/auth'
+import { mapState } from 'vuex'
 export default {
   name: 'Sidebar',
   components: {
-    breadcrumb,
+    breadcrumb
   },
   computed: {
-    sliderState() {
+    sliderState () {
       return this.$store.getters.sidebar.sliderState
     },
     ...mapState('user', ['name'])
   },
-  mounted() {
+  mounted () {
     if (!this.$store.getters.sidebar.sliderState) {
       this.$store.dispatch('setSliderState', 'full')
     }
@@ -48,7 +48,7 @@ export default {
     this.$store.dispatch('user/getUser')
   },
   methods: {
-    handleSwitchNavbar() {
+    handleSwitchNavbar () {
       this.$store.dispatch('toggleSideBar')
     },
     logout (command) {

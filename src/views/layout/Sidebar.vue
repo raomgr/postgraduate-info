@@ -1,8 +1,8 @@
 <template>
   <el-scrollbar wrapClass="scrollbar-wrapper">
-    <router-link  to="/exam" class="nav">报考信息</router-link>
-    <router-link  to="/school" class="nav">学校信息</router-link>
-    <router-link to="/major" class="nav">专业信息</router-link>
+    <router-link tag="div"  to="/examInfo" class="nav">报考信息</router-link>
+    <router-link tag="div"  to="/school/schoolInfo" class="nav">学校信息</router-link>
+    <router-link tag="div" to="/major/majorInfo" class="nav">专业信息</router-link>
   </el-scrollbar>
 </template>
 
@@ -16,7 +16,13 @@ export default {
       bg: '#8374ed',
       abg: 'red',
       tc: '#fff',
-      atc: '#41B883'
+      atc: '#41B883',
+      activeRoute: ''
+    }
+  },
+  watch: {
+    $route (val) {
+      this.activeRoute = val
     }
   },
   components: {
@@ -93,10 +99,12 @@ export default {
     font-size: 16px;
     height: 50px;
     cursor: pointer;
+    color: #6e6e6e;
   }
 .router-link-active {
   text-decoration: none;
-  color: #ffd04b;
+  color: #fff;
+  background: #8374ed;
 }
 a {
   text-decoration: none;

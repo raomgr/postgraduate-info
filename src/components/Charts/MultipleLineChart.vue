@@ -126,7 +126,7 @@ export default {
           },
           backgroundColor: '#fff',
           textStyle: {
-            color: '#32C5E9'
+            color: '#666'
           },
           extraCssText: 'box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);' // 给tooltip添加阴影
         },
@@ -223,7 +223,7 @@ export default {
           {
             type: 'inside',
             startValue: 0,
-            endValue: 12,
+            endValue: 2,
             zoomLock: true
           }
         ],

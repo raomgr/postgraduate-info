@@ -18,6 +18,7 @@
           <el-table
             :data="tableData"
             border
+            :row-class-name="tableRowClassName"
             height="600px"
             style="width: 100%">
             <el-table-column
@@ -37,13 +38,16 @@
             </el-table-column>
             <el-table-column
               prop="count"
+              fixed
               label="招生人数">
             </el-table-column>
             <el-table-column
+              fixed
               prop="tuimian"
               label="推免人数">
             </el-table-column>
             <el-table-column
+              fixed
               prop="exam"
               label="统考人数">
             </el-table-column>
@@ -53,19 +57,19 @@
             </el-table-column>
             <el-table-column
               prop="subject1"
-              label="科目一分数">
+              label="科目一分数线">
             </el-table-column>
             <el-table-column
               prop="subject2"
-              label="科目二分数">
+              label="科目二分数线">
             </el-table-column>
             <el-table-column
               prop="subject3"
-              label="科目三分数">
+              label="专业一分数线">
             </el-table-column>
             <el-table-column
               prop="subject4"
-              label="科目四分数">
+              label="专业二分数线">
             </el-table-column>
             <el-table-column
               prop="register"
@@ -98,6 +102,10 @@
             <el-table-column
               prop="cost"
               label="学费">
+            </el-table-column>
+            <el-table-column
+              prop="dormitory"
+              label="住宿">
             </el-table-column>
           </el-table>
         </div>
@@ -241,7 +249,8 @@ export default {
           average: 380,
           bottomScore: 350,
           studyTime: 2,
-          cost: 60000
+          cost: 60000,
+          dormitory: '专硕不安排住宿'
         },
         {
           schoolName: '浙江大学',
@@ -262,7 +271,8 @@ export default {
           average: 380,
           bottomScore: 350,
           studyTime: 2,
-          cost: 60000
+          cost: 60000,
+          dormitory: '安排住宿'
         },
         {
           schoolName: '南京大学',
@@ -283,7 +293,8 @@ export default {
           average: 380,
           bottomScore: 350,
           studyTime: 2,
-          cost: 60000
+          cost: 60000,
+          dormitory: '安排住宿'
         },
         {
           schoolName: '北京航空航天大学',
@@ -304,7 +315,8 @@ export default {
           average: 380,
           bottomScore: 350,
           studyTime: 2,
-          cost: 60000
+          cost: 60000,
+          dormitory: '安排住宿'
         },
         {
           schoolName: '华中科技大学',
@@ -325,7 +337,8 @@ export default {
           average: 380,
           bottomScore: 350,
           studyTime: 2,
-          cost: 60000
+          cost: 60000,
+          dormitory: '安排住宿'
         },
         {
           schoolName: '中国科学技术大学',
@@ -346,7 +359,8 @@ export default {
           average: 380,
           bottomScore: 350,
           studyTime: 2,
-          cost: 60000
+          cost: 60000,
+          dormitory: '安排住宿'
         },
         {
           schoolName: '北京邮电大学',
@@ -367,7 +381,8 @@ export default {
           average: 380,
           bottomScore: 350,
           studyTime: 2,
-          cost: 60000
+          cost: 60000,
+          dormitory: '安排住宿'
         },
         {
           schoolName: '电子科技大学',
@@ -388,7 +403,8 @@ export default {
           average: 380,
           bottomScore: 350,
           studyTime: 2,
-          cost: 60000
+          cost: 60000,
+          dormitory: '安排住宿'
         },
         {
           schoolName: '武汉大学',
@@ -409,7 +425,8 @@ export default {
           average: 380,
           bottomScore: 350,
           studyTime: 2,
-          cost: 60000
+          cost: 60000,
+          dormitory: '安排住宿'
         },
         {
           schoolName: '中山大学',
@@ -430,7 +447,8 @@ export default {
           average: 380,
           bottomScore: 350,
           studyTime: 2,
-          cost: 60000
+          cost: 60000,
+          dormitory: '安排住宿'
         },
         {
           schoolName: '天津大学',
@@ -451,7 +469,8 @@ export default {
           average: 380,
           bottomScore: 350,
           studyTime: 2,
-          cost: 60000
+          cost: 60000,
+          dormitory: '安排住宿'
         }
       ]
     }
@@ -462,12 +481,26 @@ export default {
   },
   mounted () {
   },
-  methods: {}
+  methods: {
+    tableRowClassName ({ row, rowIndex }) {
+      if (rowIndex % 2 === 0) {
+        return 'success-row'
+      }
+      return ''
+    }
+  }
 }
 </script>
 
 <style lang="less" scoped>
   .content{
     margin: 0 auto;
+  }
+  .content /deep/ .el-table .warning-row {
+    background: oldlace;
+  }
+
+  .content /deep/ .el-table .success-row {
+    background: #dbd7fb;
   }
 </style>
